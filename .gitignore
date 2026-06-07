@@ -1,0 +1,26 @@
+# ROS 2 build outputs
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# CMake / compiler artifacts
+CMakeCache.txt
+CMakeFiles/
+*.o
+*.so
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Experiment outputs that can be regenerated
+experiments/results/*.csv
+experiments/plots/*.png
+experiments/plots/*.pdf
+*.bag
+*.db3
