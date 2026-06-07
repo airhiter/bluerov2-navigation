@@ -60,6 +60,35 @@ Observe thruster output:
 ros2 topic echo /bluerov2/cmd_thruster1
 ```
 
+## Visible Gazebo Launch
+
+If the default Gazebo GUI is blank or cannot focus the robot, use the safer OGRE renderer workflow documented here:
+
+```text
+docs/01_simulation_setup.md
+```
+
+Short version:
+
+```bash
+cd /home/ct03/underwater_ws
+source install/setup.bash
+export ROS_LOG_DIR=/tmp/ros_logs
+
+ign gazebo /home/ct03/underwater_ws/install/bluerov2_description/share/bluerov2_description/urdf/demo_world.sdf \
+  -r --render-engine-gui ogre --render-engine-server ogre --force-version 6
+```
+
+Then open a second terminal and spawn BlueROV2:
+
+```bash
+cd /home/ct03/underwater_ws
+source install/setup.bash
+export ROS_LOG_DIR=/tmp/ros_logs
+
+ros2 launch bluerov2_description upload_bluerov2_launch.py gazebo_world_name:=ocean sliders:=true
+```
+
 ## Roadmap
 
 - [x] Thruster allocation with damped pseudo-inverse.
